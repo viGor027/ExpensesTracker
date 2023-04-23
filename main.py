@@ -1,14 +1,20 @@
-from db_demo import DataBase as db
+from database import DataBase as Db
+from views.login import *
 
-d1 = db()
+d1 = Db()
 
-d1.clear()
+d1.clear("Expenses")
 
-d1.push([('User1', 'Haslo1', 'Wydatek1', 'Przychod1'),
-         ('User2', 'Haslo2', 'Wydatek1', 'Przychod1'),
-         ('User3', 'Haslo3', 'Wydatek1', 'Przychod1'),
-         ('User4', 'Haslo3', 'Wydatek1', 'Przychod1')
+d1.push("Expenses", 
+        [('User1', 'Lody', 4),
+         ('User1', 'Zakupy', 120),
+         ('User2', 'Samochod', 90000),
          ])
 
-for i in d1.pull_rows():
-    print(i)
+# for i in d1.pull_rows("Expenses"):
+#     print(i)
+
+lg = Login(d1)
+
+lg.login_view("", "")
+
