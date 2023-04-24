@@ -52,7 +52,7 @@ class Login:
 
             if password == self.u_pwd_entry.get():
                 self.root.destroy()
-                d = Dash(self.db) # tutaj podać mu username,
+                d = Dash(self.db, username) # tutaj podać mu username,
                 d.dashboard_view() # żeby mógł szukać w bazie rzeczy związanych z tym użytkownikiem
             else:
                 self.label_prompt.pack(pady=5)

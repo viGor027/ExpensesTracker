@@ -13,7 +13,7 @@ d1.push("Expenses",
          ('User2', 'Samochod', 90000),
          ])
 
-d1.push("Login", [("User1", "Haslo123")])
+d1.push("Login", [("test", "test")])
 
 q = "SELECT * FROM Login"
 for i in d1.query(q):
