@@ -27,8 +27,19 @@ class DataBase:
     
     def query(self, query: str):
         return self.c.execute(query)
+    
+    def user_exists(self, user: str):
+        user_count = 0
+        q1 = "SELECT 1 FROM Login where u_name='" + user + "'"
+        for i in self.query(q1):
+            user_count += i[0]
 
-    # czyści wszystkie wiersze
+        if user_count:
+            return True
+        else:
+            return False
+
+    # czyści wszystkie wiersze podanej tabelu
     def clear(self, table: str):
         query = "DELETE FROM " + table
         self.c.execute(query)
